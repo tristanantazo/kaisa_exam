@@ -9,6 +9,11 @@ class Photo extends Model
 {
     use HasFactory;
 
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
     public static function saveDirectory($data, $account_id){
         $photo = new self;
         $photo->directory = $data;
